@@ -27,4 +27,18 @@ hs_err_pid*
 *.iml
 *.iws
 # Project exclude paths
-/target/
+/build/
+
+# Intellij
+kotlinClient/.idea/
+kotlinClient/*.iml
+kotlinClient/*.iws
+# Project exclude paths
+kotlinClient/build/
+
+# Intellij
+kotlinServer/.idea/
+kotlinServer/*.iml
+kotlinServer/*.iws
+# Project exclude paths
+kotlinServer/build/
