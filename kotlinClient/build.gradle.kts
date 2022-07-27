@@ -47,15 +47,6 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
     implementation("org.springframework.boot:spring-boot-starter-web:2.7.1")
 
-    // https://mvnrepository.com/artifact/org.springframework/spring-beans
-    implementation("org.springframework:spring-beans:5.3.22")
-
-    // https://mvnrepository.com/artifact/org.springframework/spring-aop
-    implementation("org.springframework:spring-aop:5.3.22")
-
-    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
-    compileOnly("javax.servlet:javax.servlet-api:4.0.1")
-
     // https://mvnrepository.com/artifact/io.vertx/vertx-web-client
     implementation("io.vertx:vertx-web-client:4.3.2.1")
 
@@ -64,6 +55,10 @@ dependencies {
 
     // https://mvnrepository.com/artifact/io.vertx/vertx-web-templ-thymeleaf
     implementation("io.vertx:vertx-web-templ-thymeleaf:4.3.2")
+
+    // https://mvnrepository.com/artifact/io.vertx/vertx-auth-oauth2
+    implementation("io.vertx:vertx-auth-oauth2:4.3.2")
+
 
 
 }
