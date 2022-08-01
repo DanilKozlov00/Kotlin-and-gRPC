@@ -35,6 +35,7 @@ kotlinClient/*.iml
 kotlinClient/*.iws
 # Project exclude paths
 kotlinClient/build/
+kotlinClient/.gradle/
 
 # Intellij
 kotlinServer/.idea/
@@ -42,3 +43,4 @@ kotlinServer/*.iml
 kotlinServer/*.iws
 # Project exclude paths
 kotlinServer/build/
+kotlinServer/.gradle/

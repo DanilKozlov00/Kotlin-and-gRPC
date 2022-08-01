@@ -1,6 +1,7 @@
 <html lang="en">
 <body>
-<p>Error, pokemon with this id not found</p>
+<p>Error</p>
+<th><p th:text="${error}"></p></th>
 <form action="/">
     <button type="submit">Back</button>
 </form>

@@ -59,7 +59,8 @@ dependencies {
     // https://mvnrepository.com/artifact/io.vertx/vertx-auth-oauth2
     implementation("io.vertx:vertx-auth-oauth2:4.3.2")
 
-
+    // https://mvnrepository.com/artifact/io.vertx/vertx-lang-kotlin-coroutines
+    implementation("io.vertx:vertx-lang-kotlin-coroutines:4.3.2")
 
 }
 
