@@ -38,6 +38,7 @@ open class VertxConfig {
         stubService: StubService
     ): Router {
         return Router.router(vertx).apply {
+            get("/all").handler(FreeButtonHandler(webClientService,templateEngine))
             KeycloakAuth.discover(
                 vertx,
                 OAuth2Options()

@@ -1,8 +1,12 @@
 package com.example.com.example.controller
 
+import com.example.com.example.model.PokemonsResponse
 import com.example.model.Pokemon
 import io.vertx.core.Future
+import io.vertx.core.buffer.Buffer
 import io.vertx.core.http.HttpMethod
+import io.vertx.core.json.JsonArray
+import io.vertx.core.json.JsonObject
 import io.vertx.ext.web.client.HttpResponse
 import io.vertx.ext.web.client.WebClient
 import io.vertx.ext.web.codec.BodyCodec
@@ -21,6 +25,14 @@ class WebClientService(private var webClient: WebClient) {
             HttpMethod.GET, BASE_URL + pokemonId
         )
             .`as`(BodyCodec.json(Pokemon::class.java))
+            .send()
+    }
+
+    fun getAllPokemons(): Future<HttpResponse<PokemonsResponse>> {
+        return webClient.requestAbs(
+            HttpMethod.GET, BASE_URL + "?limit=100"
+        )
+            .`as`(BodyCodec.json(PokemonsResponse::class.java))
             .send()
     }
 }
