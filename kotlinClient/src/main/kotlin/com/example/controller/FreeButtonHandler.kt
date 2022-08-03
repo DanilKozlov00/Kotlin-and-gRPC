@@ -1,29 +1,35 @@
 package com.example.com.example.controller
 
+import com.example.model.Pokemon
 import io.vertx.core.Handler
 import io.vertx.ext.web.RoutingContext
 import io.vertx.ext.web.templ.thymeleaf.ThymeleafTemplateEngine
 import io.vertx.kotlin.coroutines.await
-import kotlinx.coroutines.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class ButtonClickHandler(
-    private val templateEngine: ThymeleafTemplateEngine,
-    private val stubService: StubService,
-    private val webClientService: WebClientService
+class FreeButtonHandler(
+    private val webClientService: WebClientService,
+    private val templateEngine: ThymeleafTemplateEngine
 ) :
     Handler<RoutingContext> {
-
     override fun handle(event: RoutingContext) {
         GlobalScope.launch {
-            val pokemon = webClientService.getPokemon(event.request().getParam("number")).await().body()
-            val pokemons = stubService.sendMessage(pokemon)
-            event.data()["pokemon"] = pokemon
-            event.data()["pokemons"] = pokemons
+            val pokemons = webClientService.getAllPokemons().await().body()
+            val result: MutableList<Pokemon> = mutableListOf()
+            pokemons.results.forEach {
+                result.add(
+                    webClientService.getPokemon(
+                        it.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "")
+                    ).await().body()
+                )
+            }
+            event.data()["pokemons"] = result
             event.response()
                 .send(
                     templateEngine.render(
                         event.data(),
-                        "src/main/webapp/protectedPokemon.jsp"
+                        "src/main/webapp/freePokemons.jsp"
                     ).result()
                 ).onFailure {
                     event.data()["error"] = it.message
@@ -35,9 +41,6 @@ class ButtonClickHandler(
                             ).result()
                         )
                 }
-
         }
     }
 }
-
-
