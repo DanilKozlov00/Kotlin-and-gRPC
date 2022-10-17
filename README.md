@@ -25,7 +25,7 @@ Kotlin + gRPC + Spring + Vert.x + pokeapi example
 Внизу, все покемоны которые когда-то были запрошены
 ![Image](https://github.com/DanilKozlov00/Kotlin-and-gRPC/blob/main/images/pokemonList.png)
 
-## Настройка ketcloack client
+## Настройка keycloack client
 
 ![Image](https://github.com/DanilKozlov00/Kotlin-and-gRPC/blob/main/images/keycloakClientSettings.png)
 
